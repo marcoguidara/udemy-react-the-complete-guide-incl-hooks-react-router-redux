@@ -1,11 +1,17 @@
-import ExpenseDate from './ExpenseDate';
+import React, { useState } from "react";
+import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
 import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
-  let title = props.title;
-  const clickHandler = () => title = 'Updated!';
+  const [title, setTitle] = useState(props.title);
+
+  // let title = props.title;
+  const clickHandler = () => { 
+    setTitle('Updated!');
+    console.log(title);
+  };
 
   return (
     <Card className="expense-item">
@@ -17,6 +23,6 @@ const ExpenseItem = (props) => {
       <button onClick={clickHandler}>Change title</button>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
